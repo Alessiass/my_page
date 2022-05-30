@@ -1,13 +1,21 @@
+import { Link, useMatch, useResolvedPath } from "react-router-dom"
+
 export default function Navigation(){
     return    <nav className="navigationbar" >
-        <a href="/" className="sub-page"> Site name </a>
+        <Link to="/" className="sub-page"> Site name </Link>
         <ul>
-            <li>
-                <a href="/about_me">About me</a>
-            </li>
-            <li>
-                 <a href="/contant">Contact</a>
-            </li>
+                <ActiveLink to="/about_me">About me</ActiveLink>
+                <ActiveLink to="/contact">Contact</ActiveLink>
         </ul>
     </nav>
+}
+
+function ActiveLink({to, children, ...props}){ //Sets the current window as active and generates the lists
+    const resolvedPath = useResolvedPath(to) //Converts relative path to absolute
+    const isActive = useMatch({ path: resolvedPath.pathname, end: true}) //Full match
+    return (
+        <li className = {isActive ? "active" : ""}>
+            <Link to={to} {...props}>{children}</Link>
+        </li>
+    )
 }
