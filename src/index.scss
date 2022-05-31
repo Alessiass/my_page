@@ -1,46 +1,113 @@
-* {
-  box-sizing: boder-box;
-}
+@import "./styles/stylereset.scss"; //Resets browsers settings to default
+@import "./styles/variables.scss";
 
-body {
-  margin: 0px;
+*
+{
+  box-sizing: border-box;
 }
 
 .navigationbar {
   font-size: large;
-  background-color: #333;
+  background-color: $mainColor;
   color: white;
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
   gap: 2 rem;
-  padding: 0 1rem;
-  height: 50px;
+  padding: 0 2rem;
+  height: 60px;
+  font-family: $defaultFont;
 }
 
 .navigationbar ul{
-  padding: 0;
-  margin: 0;
   list-style: none;
   display: flex;
   gap: 1rem;
 }
 
-.navigationbar a {
-  color: inherit;
-  text-decoration: none;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding: 0 0.75rem 0 0.75rem;
+.navigationbar ul li {
+  margin: auto 0 auto 0;
 }
 
-
-.navigationbar a.active {
-  background-color: #000;
+.navigationbar ul li a {
+  display: block;
+  position: relative;
+  text-align: center;
+  text-decoration:none;
+  color:#cec5c5;
+  margin: auto 10px;
+  transition:.5s;
+  padding: 0.5rem;
 }
 
+.navigationbar ul li a span {
+  position:absolute;
+  transition: transform .5s;
+}
+.navigationbar ul li a span:nth-child(1),
+.navigationbar ul li a span:nth-child(3){
+  width:100%;
+  height:2px;
+  background:#404040;
+}
+.navigationbar ul li a span:nth-child(1) {
+  top:0px;
+  left:0px;
+  transform-origin: right;
+}
+.navigationbar ul li a:hover span:nth-child(1),
+.navigationbar ul li a.active span:nth-child(1) {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition:transform .5s;
+}
 
-.navigationbar li:hover {
-  background-color: #777;
+.navigationbar ul li a span:nth-child(3) {
+  bottom:0;
+  left:0;
+  transform-origin: left;
+}
+.navigationbar ul li a:hover span:nth-child(3),
+.navigationbar ul li a.active span:nth-child(3) {
+  transform: scaleX(0);
+  transform-origin: right;
+  transition:transform .5s;
+}
+
+.navigationbar ul li a span:nth-child(2),
+.navigationbar ul li a span:nth-child(4){
+  width:2px;
+  height:100%;
+  background:#404040;
+}
+.navigationbar ul li a span:nth-child(2) {
+  top:0;
+  left:0;
+  transform:scale(0);
+  transform-origin: bottom;
+}
+.navigationbar ul li a:hover span:nth-child(2),
+.navigationbar ul li a.active span:nth-child(2) {
+  transform: scale(1);
+  transform-origin: top;
+  transition:transform .5s;
+}
+.navigationbar ul li a span:nth-child(4) {
+  top:0;
+  right:0;
+  transform:scale(0);
+  transform-origin: top;
+}
+.navigationbar ul li a:hover span:nth-child(4),
+.navigationbar ul li a.active span:nth-child(4) {
+  transform: scale(1);
+  transform-origin: bottom;
+  transition:transform .5s;
+}
+
+.navigationbar svg {
+  margin: 0px 5px;
+}
+
+.navigationbar .nav-text-content{
+  display: none;
 }
