@@ -5,7 +5,7 @@ import {IoMail as ContactIcon} from "react-icons/io5"
 import {IoHome as HomeIcon} from "react-icons/io5"
 
 export default function Navigation(){
-    return    <nav className="navigationbar" >
+    return    <nav className="navigationbar fixed-top" >
         <Link to="/" className="sub-page"> Site name </Link>
         <ul>
             <NavigationTabs to="/" icon={<HomeIcon />}> Home</NavigationTabs>
@@ -23,7 +23,7 @@ function NavigationTabs ({to, children, icon, ...props}) {
         <span></span>
         <span></span>
         {icon}
-        <div class="nav-text-content d-sm-inline-block">{children}</div>
+        <div className="nav-text-content d-sm-inline-block">{children}</div>
 </NavLink>
 
     </li>)

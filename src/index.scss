@@ -6,15 +6,36 @@
   box-sizing: border-box;
 }
 
+@media (max-width: 576px)  {
+  .about-me-window{
+    height: calc(100vh - ($navigatorHeight + 70px));
+  }
+  .about-me-nav{
+    height: 70px;
+  }
+}
+@media (min-width: 576px)  {
+  .about-me-window{
+    height: calc(100vh - ($navigatorHeight));
+  }
+}
+
+.mainContainer{
+  position: absolute;
+  inset: $navigatorHeight 0 0 0;
+  padding: 0px;
+  width: 100%;
+  height: calc(100vh - $navigatorHeight);
+}
+
 .navigationbar {
   font-size: large;
   background-color: $mainColor;
   color: white;
   display: flex;
   justify-content: space-between;
-  gap: 2 rem;
   padding: 0 2rem;
-  height: 60px;
+  height: $navigatorHeight;
   font-family: $defaultFont;
 }
 
@@ -110,4 +131,19 @@
 
 .navigationbar .nav-text-content{
   display: none;
+}
+
+.container-fluid{
+  bottom:0px;
+  padding: 0px;
+}
+
+.row{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.about-me-window{
+  overflow: auto;
 }

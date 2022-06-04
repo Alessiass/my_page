@@ -12,16 +12,18 @@ import HomePage from './pages/HomePage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Navigation />
-      <div className="mainContainer">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about_me" element={<AboutMe />} />
-          </Routes>
-      </div>
-    </BrowserRouter>
+      <BrowserRouter>
+          <div class="appContent">
+            <Navigation />
+            <div className="mainContainer">
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/about_me" element={<AboutMe />} />
+                </Routes>
+            </div>
+          </div>
+      </BrowserRouter>
   </React.StrictMode>
 );
 
